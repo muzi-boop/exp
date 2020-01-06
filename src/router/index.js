@@ -9,6 +9,7 @@ import CourseBox from '../views/CourseBox.vue'
 import Qasession from '../views/Qasession.vue'
 import Qaright from '../views/Qaright.vue'
 import Answerying from '../views/Answerying.vue'
+import Register from '../views/register.vue'
 
 
 import Edit from '../components/editInput.vue'
@@ -24,6 +25,8 @@ import CouserOingOing from '../components/couserOingOing.vue'
 import Quiz from '../components/quiz.vue'
 import Response from '../components/response.vue'
 import Seniority from '../components/seniority.vue'
+import LogOn from '../components/logOn.vue'
+import Enroll from '../components/enroll.vue'
 
 
 Vue.use(VueRouter)
@@ -31,6 +34,19 @@ Vue.use(VueRouter)
 const routes = [
     {
         path: '/',
+        component: Register,
+        children: [{
+            path: "",
+            component: LogOn,
+        },
+        {
+            path: "enroll",
+            component: Enroll
+        }
+        ]
+    },
+    {
+        path: '/home',
         name: 'home',
         component: Home,
         children: [{
@@ -90,7 +106,7 @@ const routes = [
             }]
         },
         {
-            path: 'qa',
+            path: '/qa',
             name: 'qa',
             component: Qasession,
             children: [{
@@ -137,9 +153,7 @@ const routes = [
                     component: Reupload
                 }]
         }]
-    },
-    {path :''}
-
+    }
 ]
 
 const router = new VueRouter({
